@@ -1,4 +1,7 @@
 <div class="container mt-5">
+  <h1 class="text-center mb-5">
+    Your Daily Prescriptions
+  </h1>
   <div class="row">
     <div class="col-sm">
       <h3 class='border-bottom'>Name</h3>
@@ -27,11 +30,11 @@
     </div>
     <div class="col-sm border-right p-2">
       <% if check_in.status == 'complete'  %>
-        <p>yes</p>
+        <p data-id="<%= check_in.id %>">yes</p>
       <% else %>
         <div class="d-flex justify-content-between">
-          <p>no</p>
-          <%= link_to check_in_path(check_in), method: :patch  do %>
+          <p data-id="<%= check_in.id %>">no</p>
+          <%= link_to check_in_path(check_in), method: :patch, remote: true  do %>
             <p class="btn btn-primary">Check In</p>
           <% end %>
         </div>
