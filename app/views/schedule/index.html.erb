@@ -1,1 +1,41 @@
-<h1>schedule</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm">
+      <h3 class='border-bottom'>Name</h3>
+    </div>
+    <div class="col-sm">
+      <h3 class='border-bottom'>Intructions</h3>
+    </div>
+    <div class="col-sm">
+      <h3 class='border-bottom'>Time of Day</h3>
+    </div>
+    <div class="col-sm">
+      <h3 class='border-bottom'>Taken?</h3>
+    </div>
+  </div>
+  <% @prescription_schedules_today.each do |schedule| %>
+  <div class="row border-bottom">
+    <div class="col-sm border-right p-2">
+      <p><%= schedule.prescription.product.name.capitalize %></p>
+    </div>
+    <div class="col-sm border-right p-2">
+      <p><%= schedule.prescription.instructions %></p>
+    </div>
+    <div class="col-sm border-right p-2">
+      <p><%= schedule.time_of_day %></p>
+    </div>
+    <div class="col-sm border-right p-2">
+      <% if schedule.check_ins.find_by(scheduled_date: Date.today)  %>
+        <p>yes</p>
+      <% else %>
+        <div class="d-flex justify-content-between">
+          <p>no</p>
+          <%= link_to check_ins_path(prescription_schedule: "#{schedule.id}", requirement_type: "#{!schedule.as_needed}"), method: :post  do %>
+            <p class="btn btn-primary">Check In</p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
