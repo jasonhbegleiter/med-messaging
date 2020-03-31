@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+
+  devise :database_authenticatable, :registerable,
+           :recoverable, :rememberable, :validatable
+
   has_many :prescriptions
   has_many :prescription_schedules, through: :prescriptions
 

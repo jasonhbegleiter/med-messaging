@@ -1,6 +1,5 @@
 class ScheduleController < ApplicationController
   def index
-    # still needs to be tested
-    @schedule = CheckIn.where(scheduled_date: Date.today)
+    PrescriptionSchedule.where(user: current_user)
   end
 end

@@ -5,19 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts 'Destroying all previous users...'
-if !User.all.empty?
-  User.all.each do |u|
-    User.destroy(u.id)
-  end
-end
+puts 'Destroying all previous seeds...'
+CheckIn.destroy_all
+PrescriptionSchedule.destroy_all
+Prescription.destroy_all
+Product.destroy_all
+User.destroy_all
 
+######################################## Users ########################################
 puts "Creating 2 new users..."
 
 usr1 = User.create!(email: 'user1@email.com', phone_number: '123-456-7890',first_name: 'User1', last_name: 'LName')
 usr2 = User.create!(email: 'user2@email.com', phone_number: '223-456-7890',first_name: 'User2', last_name: 'LName')
 
-puts "New users created"
+puts "New users created!"
+
+######################################## Products ########################################
 
 puts "Creating 5 new products..."
 
@@ -27,16 +30,21 @@ prod3 = Product.create!(name: 'Fast Vitamin C', medium_type: 'Scoop', unit: 1.0,
 prod4 = Product.create!(name: 'DigestPro', medium_type: 'Tablet', unit: 0.5, company: 'OrthoHelp')
 prod5 = Product.create!(name: 'Tumeric', medium_type: 'Capsule', unit: 1, company: 'ReliefPro')
 
-puts "New products created"
+puts "New products created!"
 
-puts "Creating 4 new Rxs"
+######################################## Prescriptions ########################################
+
+puts "Creating 4 new Rxs..."
 
 rx1 = Prescription.create!(user: usr1, product: prod1, amount: 1, instructions: "Take with water", start_date: Date.new(2020,3,20), end_date: Date.new(2020,4,4), active: true)
 rx2 = Prescription.create!(user: usr1, product: prod2, amount: 2, instructions: "Take on empty stomach", start_date: Date.new(2020,3,21), end_date: Date.new(2020,4,5), active: false)
 rx3 = Prescription.create!(user: usr2, product: prod2, amount: 3, instructions: "Drink with OJ", start_date: Date.new(2020,3,22), end_date: Date.new(2020,4,6), active: true)
 rx4 = Prescription.create!(user: usr2, product: prod3, amount: 1.5, instructions: "No exercise for 2 hours", start_date: Date.new(2020,3,23), end_date: Date.new(2020,4,7), active: true)
 
-puts "Rxs Created"
+puts "Rxs created!"
+
+######################################## Prescription Schedules ########################################
+
 
 puts "Creating 12 new Rx Schedules..."
 
@@ -53,9 +61,11 @@ rxs10 = PrescriptionSchedule.create!(prescription: rx2, day_of_week: 'mon,tue,we
 rxs11 = PrescriptionSchedule.create!(prescription: rx3, day_of_week: 'mon,tue,wed,thu,fri,sat,sun', time_of_day: '20:00', as_needed: false )
 rxs12 = PrescriptionSchedule.create!(prescription: rx4, day_of_week: 'mon,tue,wed,thu,fri,sat,sun', time_of_day: '20:00', as_needed: false )
 
-puts "Rx Schedules Created"
+puts "Rx Schedules created!"
 
-puts "Creating 25 Check Ins"
+######################################## Check Ins ########################################
+
+puts "Creating 25 Check Ins..."
 
 ci1 = CheckIn.create!(prescription_schedule: rxs1, requirement_type: 'required', status: 'complete', scheduled_date: Date.new(2020,03,31), scheduled_time: '08:00')
 ci2 = CheckIn.create!(prescription_schedule: rxs2, requirement_type: 'required', status: 'missed', scheduled_date: Date.new(2020,03,31), scheduled_time: '08:00')
@@ -83,4 +93,4 @@ ci23 = CheckIn.create!(prescription_schedule: rxs11, requirement_type: 'required
 ci24 = CheckIn.create!(prescription_schedule: rxs12, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,03), scheduled_time: '08:00')
 ci25 = CheckIn.create!(prescription_schedule: rxs1, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,03), scheduled_time: '08:00')
 
-puts "Checkins Created"
+puts "Checkins created!"
