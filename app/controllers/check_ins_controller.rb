@@ -1,14 +1,18 @@
 class CheckInsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_check_in, only: [:update]
 
-  def create
-    requirement_type = params[:requirement_type] == 'true' ? 'required' : 'as_needed'
-    prescription_schedule = PrescriptionSchedule.find(params[:prescription_schedule].to_i)
-    @check_in = CheckIn.new(prescription_schedule: prescription_schedule, requirement_type: 'required', completed_timestamp: Time.now, status: 'complete', scheduled_date: Date.today)
-    @check_in.save!
 
-    p '--------------------------------------------------------'
+  def update
+    @check_in.update(status: 'complete')
+
     redirect_to root_path
+  end
+
+  private
+
+  def set_check_in
+    @check_in = CheckIn.find(params[:id])
   end
 
 end
