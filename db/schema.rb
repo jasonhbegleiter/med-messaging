@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_045132) do
+ActiveRecord::Schema.define(version: 2020_03_31_002333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "check_ins", force: :cascade do |t|
     t.bigint "prescription_schedule_id", null: false
-    t.boolean "completed"
     t.date "completed_timestamp"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "scheduled_date"
     t.index ["prescription_schedule_id"], name: "index_check_ins_on_prescription_schedule_id"
   end
 
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_03_29_045132) do
   end
 
   create_table "prescriptions", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "product_id"
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
     t.decimal "amount"
     t.string "instructions"
     t.date "start_date"
