@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   root to: "schedule#index"
 
   resources :check_ins, only: [:update]
+
+  resources :prescriptions, only: [:index, :new, :create] do
+    get 'check_schedule', to: "prescriptions#check_schedule"
+  end
 end

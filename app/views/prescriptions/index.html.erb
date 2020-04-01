@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-5">
+    My Prescriptions
+  </h1>
+  <div class="row">
+    <div class="col-sm">
+      <h3 class='border-bottom'>Name</h3>
+    </div>
+    <div class="col-sm">
+      <h3 class='border-bottom'>Intructions</h3>
+    </div>
+    <div class="col-sm">
+      <h3 class='border-bottom'>Amount</h3>
+    </div>
+    <div class="col-sm">
+      <h3 class='border-bottom'>Start Date</h3>
+    </div>
+    <div class="col-sm">
+      <h3 class='border-bottom'>End Date</h3>
+    </div>
+    <div class="col-sm">
+      <h3><span></span></h3>
+    </div>
+  </div>
+  <% @prescriptions.each do |prescription| %>
+
+  <div class="row border-bottom">
+    <div class="col-sm border-right p-2">
+      <p><%= prescription.product.name %></p>
+    </div>
+    <div class="col-sm border-right p-2">
+      <p><%= prescription.instructions %></p>
+    </div>
+    <div class="col-sm border-right p-2">
+      <p><%= prescription.amount %> grams</p>
+    </div>
+    <div class="col-sm border-right p-2">
+      <p><%= prescription.start_date.strftime("%d of %B, %Y") %></p>
+    </div>
+    <div class="col-sm border-right p-2">
+      <p><%= prescription.end_date.strftime("%d of %B, %Y") %></p>
+    </div>
+    <div class="col-sm m-auto">
+      <%= link_to prescription_check_schedule_path(prescription), remote: true  do%>
+        <button class='btn-primary btn-sm'>Check Schedules</button>
+      <% end %>
+    </div>
+  </div>
+  <div class="schedule-form-js" id='schedule-form-<%= prescription.id %>'>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+<div class="row border-bottom border-primary mr-5 ml-5">
+  <div class="col-sm-8 border border-primary p-2">
+    <p>Days of week</p>
+  </div>
+  <div class="col-sm-4 border border-primary p-2">
+    <p>Time of day</p>
+  </div>
+</div>
+
+<% @prescription_schedules.each do |schedule| %>
+  <div class="row border border-primary mr-5 ml-5">
+    <div class="col-sm-8 border p-2">
+      <p><%= schedule.day_of_week %></p>
+    </div>
+    <div class="col-sm-4 border border-primary p-2">
+      <p><%= schedule.time_of_day %></p>
+    </div>
+  </div>
+<% end %>
