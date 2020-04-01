@@ -17,7 +17,8 @@ class PrescriptionsController < ApplicationController
     amount = params[:prescription][:amount].to_f
     instructions = instructions = params[:prescription][:instructions]
     end_date = Date.new(params[:prescription]["end_date(1i)"].to_i, params[:prescription]["end_date(2i)"].to_i, params[:prescription]["end_date(3i)"].to_i )
-    @prescription = Prescription.new(product: product, amount: amount, instructions: instructions, end_date: end_date, start_date: Date.new)
+    start_date = Date.new(params[:prescription]["start_date(1i)"].to_i, params[:prescription]["start_date(2i)"].to_i, params[:prescription]["start_date(3i)"].to_i )
+    @prescription = Prescription.new(product: product, amount: amount, instructions: instructions, end_date: end_date, start_date: start_date)
     @prescription.user = current_user
 
     if @prescription.save
