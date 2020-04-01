@@ -1,0 +1,18 @@
+<%= simple_form_for(@prescription) do |f|%>
+
+  <%= f.label :prodct, "Product Name" %>
+  <%= f.input :product, collection: @all_products, label: false %>
+
+  <%= f.label :amount, "Amount (in grams)" %>
+  <%= f.input :amount, label: false %>
+
+  <%= f.label :instructions, "Enter instructions" %>
+  <%= f.input :instructions, label: false, as: :text %>
+
+  <%= f.label :end_date, "End date" %>
+  <%= f.input :end_date %>
+
+  <%= f.button :submit, value: "Submit", class: "btn btn-primary mt-3" %>
+
+
+<% end %>
