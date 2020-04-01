@@ -1,0 +1,14 @@
+document.querySelectorAll('.schedule-form-js').forEach((schedule) =>
+    {
+      if (schedule.children){
+        Array.from(schedule.children).forEach((child) => {
+          child.classList = []
+         child.innerHTML = ""
+        });
+      }
+    }
+  );
+var current_schedule = document.getElementById("schedule-form-<%= j (@prescription.id) %>")
+
+// current_schedule.style.display = "";
+current_schedule.innerHTML += '<%= j (render partial: "prescription_schedules") %>'
