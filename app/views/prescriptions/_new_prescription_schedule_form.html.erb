@@ -1,0 +1,36 @@
+<h4 class="text-center m-2">Add new</h1>
+<%= form_with  url: prescription_prescription_schedules_url(@prescription), local: true do |f| %>
+  <div class="row border mr-5 ml-5">
+    <div class="col-sm-2 text-center p-3">
+      <input type="number" min="0" max="23" name="hours" placeholder="23">:
+      <input type="number" min="0" max="59" name="minutes" placeholder="00">
+    </div>
+    <div class="col-sm-1 text-center p-3">
+      <input type="checkbox" class="hidden" name="Sunday" value="1" class='mr-2'>
+    </div>
+    <div class="col-sm-1 text-center p-3">
+      <input type="checkbox" class="hidden" name="Monday" value="1" class='mr-2'>
+    </div>
+    <div class="col-sm-1 text-center p-3">
+      <input type="checkbox" class="hidden" name="Tuesday" value="1" class='mr-2'>
+    </div>
+    <div class="col-sm-1 text-center p-3">
+      <input type="checkbox" class="hidden" name="Wednesday" value="1" class='mr-2'>
+    </div>
+    <div class="col-sm-1 text-center p-3">
+      <input type="checkbox" class="hidden" name="Thursday"value="1" class='mr-2'>
+    </div>
+    <div class="col-sm-1 text-center p-3">
+      <input type="checkbox" class="hidden" name="Friday"lue="1" class='mr-2'>
+    </div>
+    <div class="col-sm-1 text-center p-3">
+      <input type="checkbox" class="hidden" name="Saturday" value="1" class='mr-2'>
+    </div>
+    <div class="col-sm-3 text-center p-3">
+      <input type="checkbox" class="hidden" name="as_needed" value="1" class='mr-2'>
+    </div>
+  </div>
+  <div class="text-center p-3">
+    <%= submit_tag 'Save', class: "btn btn-secondary mt-2 m-auto" %>
+  </div>
+<% end %>
