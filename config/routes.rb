@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   resources :check_ins, only: [:update]
 
+
   resources :prescriptions, only: [:index, :new, :create] do
+    resources :prescription_schedules, only: [:create]
+
     get 'check_schedule', to: "prescriptions#check_schedule"
   end
 end

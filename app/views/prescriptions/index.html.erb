@@ -4,19 +4,20 @@
   </h1>
   <div class="row">
     <div class="col-sm">
-      <h3 class='border-bottom'>Name</h3>
+      <h3 class='mb-4'>Name</h3>
     </div>
     <div class="col-sm">
-      <h3 class='border-bottom'>Instructions</h3>
+      <h3 class='mb-4'>Intructions</h3>
+
     </div>
     <div class="col-sm">
-      <h3 class='border-bottom'>Amount</h3>
+      <h3 class='mb-4'>Amount</h3>
     </div>
     <div class="col-sm">
-      <h3 class='border-bottom'>Start Date</h3>
+      <h3 class='mb-4'>Start Date</h3>
     </div>
     <div class="col-sm">
-      <h3 class='border-bottom'>End Date</h3>
+      <h3 class='mb-4'>End Date</h3>
     </div>
     <div class="col-sm">
       <h3><span></span></h3>
@@ -25,19 +26,19 @@
   <% @prescriptions.each do |prescription| %>
 
   <div class="row border-bottom">
-    <div class="col-sm border-right p-2">
+    <div class="col-sm p-2">
       <p><%= prescription.product.name %></p>
     </div>
-    <div class="col-sm border-right p-2">
+    <div class="col-sm p-2">
       <p><%= prescription.instructions %></p>
     </div>
-    <div class="col-sm border-right p-2">
+    <div class="col-sm p-2">
       <p><%= prescription.amount %> grams</p>
     </div>
-    <div class="col-sm border-right p-2">
+    <div class="col-sm p-2">
       <p><%= prescription.start_date.strftime("%d of %B, %Y") %></p>
     </div>
-    <div class="col-sm border-right p-2">
+    <div class="col-sm p-2">
       <p><%= prescription.end_date.strftime("%d of %B, %Y") %></p>
     </div>
     <div class="col-sm m-auto">

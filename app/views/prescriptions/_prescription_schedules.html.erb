@@ -1,19 +1,75 @@
-<div class="row border-bottom border-primary mr-5 ml-5">
-  <div class="col-sm-8 border border-primary p-2">
-    <p>Days of week</p>
+<div class="row mr-5 ml-5">
+  <div class="col-sm-2 text-center m-auto p-3">
+    <h4>Time</h4>
   </div>
-  <div class="col-sm-4 border border-primary p-2">
-    <p>Time of day</p>
+  <div class="col-sm-7 text-center p-3">
+    <h4>Days of week</h4>
+  </div>
+  <div class="col-sm-3 text-center p-3">
+    <h4>As needed</h4>
   </div>
 </div>
-
+<div class="row mr-5 ml-5">
+  <div class="col-sm-2 text-center p-2">
+    <span></span>
+  </div>
+  <div class="col-sm-1 text-center p-2">
+    <h6>Sun</h6>
+  </div>
+  <div class="col-sm-1 text-center p-2">
+    <h6>Mon</h6>
+  </div>
+  <div class="col-sm-1 text-center p-2">
+    <h6>Tue</h6>
+  </div>
+  <div class="col-sm-1 text-center p-2">
+    <h6>Wed</h6>
+  </div>
+  <div class="col-sm-1 text-center p-2">
+    <h6>Thur</h6>
+  </div>
+  <div class="col-sm-1 text-center p-2">
+    <h6>Fri</h6>
+  </div>
+  <div class="col-sm-1 text-center p-2">
+    <h6>Sat</h6>
+  </div>
+  <div class="col-sm-3 text-center p-2">
+    <span></span>
+  </div>
+</div>
 <% @prescription_schedules.each do |schedule| %>
-  <div class="row border border-primary mr-5 ml-5">
-    <div class="col-sm-8 border p-2">
-      <p><%= schedule.day_of_week %></p>
-    </div>
-    <div class="col-sm-4 border border-primary p-2">
+  <div class="row border border mr-5 ml-5">
+    <div class="col-sm-2 border-right text-center p-3">
       <p><%= schedule.time_of_day %></p>
+    </div>
+    <div class="col-sm-1 border-right text-center p-3">
+      <%= schedule.day_of_week.split(",").include?("Sunday") ? "x" : "" %>
+    </div>
+    <div class="col-sm-1 border-right text-center p-3">
+      <%= schedule.day_of_week.split(",").include?("Monday") ? "x" : "" %>
+    </div>
+    <div class="col-sm-1 border-right text-center p-3">
+      <%= schedule.day_of_week.split(",").include?("Tuesday") ? "x" : "" %>
+    </div>
+    <div class="col-sm-1 border-right text-center p-3">
+      <%= schedule.day_of_week.split(",").include?("Wednesday") ? "x" : "" %>
+    </div>
+    <div class="col-sm-1 border-right text-center p-3">
+      <%= schedule.day_of_week.split(",").include?("Thursday") ? "x" : "" %>
+    </div>
+    <div class="col-sm-1 border-right text-center p-3">
+      <%= schedule.day_of_week.split(",").include?("Friday") ? "x" : "" %>
+    </div>
+    <div class="col-sm-1 border-right text-center p-3">
+      <%= schedule.day_of_week.split(",").include?("Saturday") ? "x" : "" %>
+    </div>
+    <div class="col-sm-3 border-right text-center p-3">
+      <%= schedule.as_needed ? "x" : "" %>
     </div>
   </div>
 <% end %>
+<div class="bg-light">
+  <%= render 'new_prescription_schedule_form' %>
+</div>
+
