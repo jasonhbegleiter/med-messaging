@@ -15,8 +15,8 @@ User.destroy_all
 ######################################## Users ########################################
 puts "Creating 2 new users..."
 
-usr1 = User.create!(email: 'user1@email.com', phone_number: '123-456-7890',first_name: 'User1', last_name: 'LName', password: '123456')
-usr2 = User.create!(email: 'user2@email.com', phone_number: '223-456-7890',first_name: 'User2', last_name: 'LName', password: '123456')
+usr1 = User.create!(email: 'user1@email.com', phone_number: '972547171109',first_name: 'User1', last_name: 'LName', password: '123456', admin: true)
+usr2 = User.create!(email: 'user2@email.com', phone_number: '16097035733',first_name: 'User2', last_name: 'LName', password: '123456')
 
 puts "New users created!"
 
@@ -67,30 +67,30 @@ puts "Rx Schedules created!"
 
 puts "Creating 25 Check Ins..."
 
-ci1 = CheckIn.create!(prescription_schedule: rxs1, requirement_type: 'required', status: 'complete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs1.time_of_day)
-ci2 = CheckIn.create!(prescription_schedule: rxs2, requirement_type: 'required', status: 'missed', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs2.time_of_day)
-ci3 = CheckIn.create!(prescription_schedule: rxs3, requirement_type: 'required', status: 'complete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs3.time_of_day)
-ci4 = CheckIn.create!(prescription_schedule: rxs4, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs4.time_of_day)
-ci5 = CheckIn.create!(prescription_schedule: rxs5, requirement_type: 'as_needed', status: 'complete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs5.time_of_day)
-ci6 = CheckIn.create!(prescription_schedule: rxs6, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs6.time_of_day)
-ci7 = CheckIn.create!(prescription_schedule: rxs7, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs7.time_of_day)
-ci8 = CheckIn.create!(prescription_schedule: rxs8, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs8.time_of_day)
-ci9 = CheckIn.create!(prescription_schedule: rxs9, requirement_type: 'as_needed', status: 'incomplete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs9.time_of_day)
-ci10 = CheckIn.create!(prescription_schedule: rxs10, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs10.time_of_day)
-ci11 = CheckIn.create!(prescription_schedule: rxs11, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs11.time_of_day)
-ci12 = CheckIn.create!(prescription_schedule: rxs12, requirement_type: 'as_needed', status: 'incomplete', scheduled_date: Date.new(2020,03,31), scheduled_time: rxs12.time_of_day)
-ci13 = CheckIn.create!(prescription_schedule: rxs1, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs1.time_of_day)
-ci14 = CheckIn.create!(prescription_schedule: rxs2, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs2.time_of_day)
-ci15 = CheckIn.create!(prescription_schedule: rxs3, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs3.time_of_day)
-ci16 = CheckIn.create!(prescription_schedule: rxs4, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs4.time_of_day)
-ci17 = CheckIn.create!(prescription_schedule: rxs5, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs5.time_of_day)
-ci18 = CheckIn.create!(prescription_schedule: rxs6, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs6.time_of_day)
-ci19 = CheckIn.create!(prescription_schedule: rxs7, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs7.time_of_day)
-ci20 = CheckIn.create!(prescription_schedule: rxs8, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs8.time_of_day)
-ci21 = CheckIn.create!(prescription_schedule: rxs9, requirement_type: 'as_needed', status: 'incomplete', scheduled_date: Date.new(2020,04,01), scheduled_time: rxs9.time_of_day)
-ci22 = CheckIn.create!(prescription_schedule: rxs10, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,03), scheduled_time: rxs10.time_of_day)
-ci23 = CheckIn.create!(prescription_schedule: rxs11, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,03), scheduled_time: rxs11.time_of_day)
-ci24 = CheckIn.create!(prescription_schedule: rxs12, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,03), scheduled_time: rxs12.time_of_day)
-ci25 = CheckIn.create!(prescription_schedule: rxs1, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,03), scheduled_time: rxs1.time_of_day)
+ci1 = CheckIn.create!(prescription_schedule: rxs1, requirement_type: 'required', status: 'complete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs1.time_of_day)
+ci2 = CheckIn.create!(prescription_schedule: rxs2, requirement_type: 'required', status: 'missed', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs2.time_of_day)
+ci3 = CheckIn.create!(prescription_schedule: rxs3, requirement_type: 'required', status: 'complete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs3.time_of_day)
+ci4 = CheckIn.create!(prescription_schedule: rxs4, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs4.time_of_day)
+ci5 = CheckIn.create!(prescription_schedule: rxs5, requirement_type: 'as_needed', status: 'complete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs5.time_of_day)
+ci6 = CheckIn.create!(prescription_schedule: rxs6, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs6.time_of_day)
+ci7 = CheckIn.create!(prescription_schedule: rxs7, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs7.time_of_day)
+ci8 = CheckIn.create!(prescription_schedule: rxs8, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs8.time_of_day)
+ci9 = CheckIn.create!(prescription_schedule: rxs9, requirement_type: 'as_needed', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs9.time_of_day)
+ci10 = CheckIn.create!(prescription_schedule: rxs10, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs10.time_of_day)
+ci11 = CheckIn.create!(prescription_schedule: rxs11, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs11.time_of_day)
+ci12 = CheckIn.create!(prescription_schedule: rxs12, requirement_type: 'as_needed', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs12.time_of_day)
+ci13 = CheckIn.create!(prescription_schedule: rxs1, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs1.time_of_day)
+ci14 = CheckIn.create!(prescription_schedule: rxs2, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs2.time_of_day)
+ci15 = CheckIn.create!(prescription_schedule: rxs3, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs3.time_of_day)
+ci16 = CheckIn.create!(prescription_schedule: rxs4, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs4.time_of_day)
+ci17 = CheckIn.create!(prescription_schedule: rxs5, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs5.time_of_day)
+ci18 = CheckIn.create!(prescription_schedule: rxs6, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs6.time_of_day)
+ci19 = CheckIn.create!(prescription_schedule: rxs7, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs7.time_of_day)
+ci20 = CheckIn.create!(prescription_schedule: rxs8, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs8.time_of_day)
+ci21 = CheckIn.create!(prescription_schedule: rxs9, requirement_type: 'as_needed', status: 'incomplete', scheduled_date: Date.new(2020,04,04), scheduled_time: rxs9.time_of_day)
+ci22 = CheckIn.create!(prescription_schedule: rxs10, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs10.time_of_day)
+ci23 = CheckIn.create!(prescription_schedule: rxs11, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs11.time_of_day)
+ci24 = CheckIn.create!(prescription_schedule: rxs12, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs12.time_of_day)
+ci25 = CheckIn.create!(prescription_schedule: rxs1, requirement_type: 'required', status: 'incomplete', scheduled_date: Date.new(2020,04,05), scheduled_time: rxs1.time_of_day)
 
 puts "Checkins created!"

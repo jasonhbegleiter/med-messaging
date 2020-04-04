@@ -4,4 +4,5 @@ class CheckIn < ApplicationRecord
   validates :scheduled_date, presence: true
   validates :scheduled_time, presence: true
 
+  has_one :text_message
 end

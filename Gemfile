@@ -8,6 +8,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '6.0.0'
 gem 'redis'
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
@@ -15,6 +16,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'nexmo'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :check_ins, only: [:update]
 
+  post 'inbound_sms', to: 'inbound_sms#create'
 
   resources :prescriptions, only: [:index, :new, :create] do
     resources :prescription_schedules, only: [:create]
