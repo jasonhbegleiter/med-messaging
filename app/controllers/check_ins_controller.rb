@@ -4,6 +4,7 @@ class CheckInsController < ApplicationController
 
 
   def update
+
     @check_in.update(status: 'complete')
     @check_in.update(completed_timestamp: DateTime.now())
     # redirect_to root_path

@@ -8,7 +8,7 @@ class PrescriptionSchedule < ApplicationRecord
   validates :time_of_day, presence: true
 
   def set_defaults
-    self.update(as_needed: false)
-    self.update(day_of_week: "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday")
+    self.update(as_needed: false) unless self.as_needed
+    self.update(day_of_week: "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday") unless self.day_of_week
   end
 end
