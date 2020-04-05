@@ -17,8 +17,11 @@ class SendSmsJob < ApplicationJob
                    "If completed, reply \"1\" \n\n If not completed, reply \"2\".\n\n" +
                    "Med Messaging"
 
+    # if User is from the united states, send it from the US number
+    sending_phone_number = user.phone_number[0] == "1" ? ENV["NEXMO_PHONE_NUMBER_US"] : ENV["NEXMO_PHONE_NUMBER_ISRAEL"]
+
     nexmo.sms.send(
-        from: ENV["NEXMO_PHONE_NUMBER"],
+        from: sending_phone_number,
         to: user.phone_number,
         text: notification
       )
