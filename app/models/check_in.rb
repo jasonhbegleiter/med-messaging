@@ -11,6 +11,6 @@ class CheckIn < ApplicationRecord
   private
 
   def set_sms_time
-    SendSmsJob.set(wait_until: ("#{self.scheduled_date} #{self.scheduled_time}").to_datetime).perform_later
+    SendSmsJob.set(wait_until: ("#{self.scheduled_date} #{self.scheduled_time}").to_datetime).perform_later(self.id)
   end
 end
