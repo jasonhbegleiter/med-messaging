@@ -12,4 +12,11 @@ Rails.application.routes.draw do
 
     get 'check_schedule', to: "prescriptions#check_schedule"
   end
+
+
+  # For being able to see sidekiq processes if you are an admin
+  require "sidekiq/web"
+    authenticate :user, lambda { |u| u.admin } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
 end
