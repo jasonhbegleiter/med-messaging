@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_131645) do
+ActiveRecord::Schema.define(version: 2020_04_14_225651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "check_ins", force: :cascade do |t|
     t.bigint "prescription_schedule_id", null: false
@@ -25,6 +31,21 @@ ActiveRecord::Schema.define(version: 2020_04_04_131645) do
     t.string "requirement_type"
     t.string "scheduled_time"
     t.index ["prescription_schedule_id"], name: "index_check_ins_on_prescription_schedule_id"
+  end
+
+  create_table "episode_symptoms", force: :cascade do |t|
+    t.bigint "symptom_id", null: false
+    t.integer "symptom_intensity"
+    t.bigint "health_episode_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["health_episode_id"], name: "index_episode_symptoms_on_health_episode_id"
+    t.index ["symptom_id"], name: "index_episode_symptoms_on_symptom_id"
+  end
+
+  create_table "health_episodes", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "prescription_schedules", force: :cascade do |t|
@@ -60,6 +81,12 @@ ActiveRecord::Schema.define(version: 2020_04_04_131645) do
     t.string "company"
   end
 
+  create_table "symptoms", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "text_messages", force: :cascade do |t|
     t.string "to"
     t.string "from"
@@ -70,6 +97,25 @@ ActiveRecord::Schema.define(version: 2020_04_04_131645) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "check_in_id"
     t.index ["check_in_id"], name: "index_text_messages_on_check_in_id"
+  end
+
+  create_table "trigger_resolution_episodes", force: :cascade do |t|
+    t.bigint "health_episode_id", null: false
+    t.bigint "trigger_resolution_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["health_episode_id"], name: "index_trigger_resolution_episodes_on_health_episode_id"
+    t.index ["trigger_resolution_id"], name: "index_trigger_resolution_episodes_on_trigger_resolution_id"
+  end
+
+  create_table "trigger_resolutions", force: :cascade do |t|
+    t.bigint "activity_id", null: false
+    t.bigint "product_id", null: false
+    t.text "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_trigger_resolutions_on_activity_id"
+    t.index ["product_id"], name: "index_trigger_resolutions_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,7 +135,13 @@ ActiveRecord::Schema.define(version: 2020_04_04_131645) do
   end
 
   add_foreign_key "check_ins", "prescription_schedules"
+  add_foreign_key "episode_symptoms", "health_episodes"
+  add_foreign_key "episode_symptoms", "symptoms"
   add_foreign_key "prescription_schedules", "prescriptions"
   add_foreign_key "prescriptions", "products"
   add_foreign_key "prescriptions", "users"
+  add_foreign_key "trigger_resolution_episodes", "health_episodes"
+  add_foreign_key "trigger_resolution_episodes", "trigger_resolutions"
+  add_foreign_key "trigger_resolutions", "activities"
+  add_foreign_key "trigger_resolutions", "products"
 end
