@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_225651) do
+ActiveRecord::Schema.define(version: 2020_04_15_012610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,9 +111,9 @@ ActiveRecord::Schema.define(version: 2020_04_14_225651) do
   create_table "trigger_resolutions", force: :cascade do |t|
     t.bigint "activity_id", null: false
     t.bigint "product_id", null: false
-    t.text "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "category"
     t.index ["activity_id"], name: "index_trigger_resolutions_on_activity_id"
     t.index ["product_id"], name: "index_trigger_resolutions_on_product_id"
   end
